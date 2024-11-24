@@ -6,8 +6,7 @@ Este é o backend do sistema de cadastro de filmes, desenvolvido em **Spring Boo
 
 ## Tecnologias Utilizadas
 
-- **Spring Boot**  
-  [Documentação Oficial do Spring Boot](https://spring.io/projects/spring-boot)
+- [**Spring Boot**](https://spring.io/projects/spring-boot)
 
 ## Funcionalidades
 
