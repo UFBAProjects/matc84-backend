@@ -2,7 +2,7 @@
 
 Este é o backend do sistema de cadastro de filmes, desenvolvido em **Spring Boot**. Ele gerencia o cadastro de usuários, autenticação e todas as operações relacionadas aos filmes. Para acessar o repositório do frontend, clique no link abaixo:
 
-[Repositório do Frontend](#)
+[Repositório do Frontend](https://github.com/UFBAProjects/matc84-frontend)
 
 ## Tecnologias Utilizadas
 
