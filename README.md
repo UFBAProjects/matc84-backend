@@ -11,8 +11,8 @@ Este é o backend do sistema de cadastro de filmes, desenvolvido em **Spring Boo
 ## Funcionalidades
 
 ### Usuários
-- **Cadastro:** Cria o usuário no Firebase, salva informações no banco de dados e gerencia cookies de sessão.
-- **Login:** Valida credenciais no Firebase, gerencia cookies de sessão e armazena informações da requisição.
+- **Cadastro:** Cria o usuário, salva informações no banco de dados e gerencia cookies de sessão.
+- **Login:** Valida credenciais, gerencia cookies de sessão e armazena informações da requisição.
 
 ### Filmes
 - **Cadastrar Filme:** Permite ao usuário autenticado adicionar um novo filme com campos obrigatórios e, opcionalmente, fazer upload de uma capa.
