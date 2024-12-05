@@ -22,10 +22,10 @@ public class Filme {
     private String descricao;
 
     @Lob
-    private byte[] capa;  // Campo para armazenar a imagem da capa do filme
+    private byte[] capa;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private Usuario usuario;
 
     public Filme() {}
