@@ -2,6 +2,7 @@ package com.matc84.cadastro_filmes.service;
 
 import com.matc84.cadastro_filmes.dto.FilmeDTO;
 import com.matc84.cadastro_filmes.model.Filme;
+import com.matc84.cadastro_filmes.model.Usuario;
 import com.matc84.cadastro_filmes.repository.FilmeRepository;
 import com.matc84.cadastro_filmes.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,10 @@ public class FilmeService {
     }
 
     public FilmeDTO cadastrarFilme(FilmeDTO filmeDTO) {
-        Filme filme = toEntity(filmeDTO);
+        Usuario usuario = usuarioRepository.findById(filmeDTO.getUsuarioId())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado para o ID: " + filmeDTO.getUsuarioId()));
+
+        Filme filme = toEntity(filmeDTO, usuario);
         Filme filmeSalvo = filmeRepository.save(filme);
         return toDTO(filmeSalvo);
     }
@@ -40,8 +44,8 @@ public class FilmeService {
         return toDTO(filmeAtualizado);
     }
 
-    private Filme toEntity(FilmeDTO dto) {
-        return new Filme(null, dto.getTitulo(), dto.getGenero(), dto.getAnoLancamento(), dto.getDescricao(), dto.getCapa(), null);
+    private Filme toEntity(FilmeDTO dto, Usuario usuario) {
+        return new Filme(null, dto.getTitulo(), dto.getGenero(), dto.getAnoLancamento(), dto.getDescricao(), dto.getCapa(), usuario);
     }
 
     private FilmeDTO toDTO(Filme filme) {
@@ -54,3 +58,4 @@ public class FilmeService {
         return dto;
     }
 }
+

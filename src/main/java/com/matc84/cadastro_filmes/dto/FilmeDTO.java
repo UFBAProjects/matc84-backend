@@ -6,6 +6,7 @@ public class FilmeDTO {
     private int anoLancamento;
     private String descricao;
     private String capa;  // Alterado de byte[] para String
+    private Long usuarioId;
 
     public String getTitulo() {
         return titulo;
@@ -45,5 +46,13 @@ public class FilmeDTO {
 
     public void setCapa(String capa) {
         this.capa = capa;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }
