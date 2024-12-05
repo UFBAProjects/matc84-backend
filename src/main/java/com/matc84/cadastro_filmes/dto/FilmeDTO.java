@@ -5,7 +5,7 @@ public class FilmeDTO {
     private String genero;
     private int anoLancamento;
     private String descricao;
-    private byte[] capa;
+    private String capa;  // Alterado de byte[] para String
 
     public String getTitulo() {
         return titulo;
@@ -39,11 +39,11 @@ public class FilmeDTO {
         this.descricao = descricao;
     }
 
-    public byte[] getCapa() {
+    public String getCapa() {
         return capa;
     }
 
-    public void setCapa(byte[] capa) {
+    public void setCapa(String capa) {
         this.capa = capa;
     }
 }

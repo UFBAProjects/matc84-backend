@@ -21,8 +21,8 @@ public class Filme {
     @Column(nullable = false)
     private String descricao;
 
-    @Lob
-    private byte[] capa;
+    @Column(nullable = true)  // Alterado de @Lob para @Column para armazenar caminho
+    private String capa;  // Alterado de byte[] para String
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -30,7 +30,7 @@ public class Filme {
 
     public Filme() {}
 
-    public Filme(Long id, String titulo, String genero, int anoLancamento, String descricao, byte[] capa, Usuario usuario) {
+    public Filme(Long id, String titulo, String genero, int anoLancamento, String descricao, String capa, Usuario usuario) {
         this.id = id;
         this.titulo = titulo;
         this.genero = genero;
@@ -80,11 +80,11 @@ public class Filme {
         this.descricao = descricao;
     }
 
-    public byte[] getCapa() {
+    public String getCapa() {
         return capa;
     }
 
-    public void setCapa(byte[] capa) {
+    public void setCapa(String capa) {
         this.capa = capa;
     }
 
