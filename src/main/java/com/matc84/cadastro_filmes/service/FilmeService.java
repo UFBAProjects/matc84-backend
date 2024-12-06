@@ -65,5 +65,11 @@ public class FilmeService {
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
+
+    public void deletarFilme(Long id) {
+        Filme filme = filmeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Filme não encontrado para o ID: " + id));
+        filmeRepository.delete(filme);
+    }
 }
 

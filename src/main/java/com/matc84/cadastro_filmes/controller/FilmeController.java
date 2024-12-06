@@ -36,4 +36,10 @@ public class FilmeController {
         return ResponseEntity.ok(filmes);
     }
 
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<Void> deletarFilme(@PathVariable Long id) {
+        filmeService.deletarFilme(id);
+        return ResponseEntity.ok().build();
+    }
+
 }
