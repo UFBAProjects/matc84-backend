@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface FilmeRepository extends JpaRepository<Filme, Long> {
 
+    List<Filme> findByUser_id(Long user_id);
+
 }

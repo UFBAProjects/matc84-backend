@@ -7,8 +7,8 @@ import com.matc84.cadastro_filmes.repository.FilmeRepository;
 import com.matc84.cadastro_filmes.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FilmeService {
@@ -22,8 +22,8 @@ public class FilmeService {
     }
 
     public FilmeDTO cadastrarFilme(FilmeDTO filmeDTO) {
-        Usuario usuario = usuarioRepository.findById(filmeDTO.getUsuarioId())
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado para o ID: " + filmeDTO.getUsuarioId()));
+        Usuario usuario = usuarioRepository.findById(filmeDTO.getUser_id())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado para o ID: " + filmeDTO.getUser_id()));
 
         Filme filme = toEntity(filmeDTO, usuario);
         Filme filmeSalvo = filmeRepository.save(filme);
@@ -55,7 +55,15 @@ public class FilmeService {
         dto.setAnoLancamento(filme.getAnoLancamento());
         dto.setDescricao(filme.getDescricao());
         dto.setCapa(filme.getCapa());
+        dto.setUser_id(filme.getUser().getId());
         return dto;
+    }
+
+    public List<FilmeDTO> buscarFilmesPorUsuario(Long user_id) {
+        List<Filme> filmes = filmeRepository.findByUser_id(user_id);
+        return filmes.stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 }
 

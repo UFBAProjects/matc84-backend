@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/usuarios")
 public class UsuarioController {
+
     private final UsuarioService usuarioService;
 
     @Autowired

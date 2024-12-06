@@ -31,6 +31,6 @@ public class Filme {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Usuario usuario;
+    private Usuario user;
 
 }
