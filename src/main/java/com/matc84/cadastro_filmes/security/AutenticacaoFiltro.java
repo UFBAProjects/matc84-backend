@@ -36,7 +36,10 @@ public class AutenticacaoFiltro extends OncePerRequestFilter {
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             } catch (Exception e) {
-                System.out.println("Token inválido");
+                response.setContentType("application/json");
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.getWriter().write("{\"mensagem\": \"Token inválido ou expirado\"}");
+                return;
             }
         }
 
