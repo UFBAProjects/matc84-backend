@@ -27,3 +27,51 @@ Este é o backend do sistema de cadastro de filmes, desenvolvido em **Spring Boo
 3. Execute o projeto com seu IDE ou usando o comando:  
    ```bash
    ./mvnw spring-boot:run
+
+# Rotas
+
+| METHOD | PATH                    | 
+|--------|-------------------------|
+| POST   | /filmes/cadastrar       |
+| GET    | /filmes/listar/:user_id |
+| PUT    | /filmes/atualizar/{id}  |
+| DELETE | /filmes/deletar/:id     |
+Rotas protegidas.
+
+Exemplo POST:
+```
+{
+  "titulo": "O Poderoso Chefão",
+  "genero": "Drama",
+  "anoLancamento": 1972,
+  "descricao": "Um épico sobre a família Corleone e sua luta pelo poder no submundo do crime.",
+  "capa": "https://exemplo.com/imagens/capa-poderoso-chefao.jpg",
+  "user_id": 1
+}
+```
+
+
+| METHOD | PATH        | 
+|--------|-------------|
+| POST   | /auth/login |
+Exemplo POST:
+```
+{
+  "email": "email@exemplo.com",
+  "senha": "senha123"
+}
+```
+
+| METHOD | PATH      | 
+|--------|-----------|
+| POST   | /usuarios |
+
+Exemplo POST:
+```
+{
+  "nome": "Seu Nome",
+  "email": "email@exemplo.com",
+  "senha": "senha123"
+}
+
+```
