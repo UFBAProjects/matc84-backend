@@ -33,6 +33,7 @@ public class UsuarioService {
 
     private UsuarioDTO toDTO(Usuario usuario) {
         UsuarioDTO usuarioDTO = new UsuarioDTO();
+        usuarioDTO.setId(usuario.getId());
         usuarioDTO.setEmail(usuario.getEmail());
         usuarioDTO.setNome(usuario.getNome());
         return usuarioDTO;

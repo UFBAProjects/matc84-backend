@@ -50,6 +50,7 @@ public class FilmeService {
 
     private FilmeDTO toDTO(Filme filme) {
         FilmeDTO dto = new FilmeDTO();
+        dto.setId(filme.getId());
         dto.setTitulo(filme.getTitulo());
         dto.setGenero(filme.getGenero());
         dto.setAnoLancamento(filme.getAnoLancamento());
