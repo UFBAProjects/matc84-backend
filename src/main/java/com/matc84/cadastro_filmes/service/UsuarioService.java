@@ -46,4 +46,8 @@ public class UsuarioService {
         return passwordEncoder.matches(senha, senhaCriptografada);
     }
 
+    public UsuarioDTO getUsuarioPorEmail(String email) {
+        Usuario usuario = usuarioRepository.findByEmail(email).orElse(null);
+        return toDTO(usuario);
+    }
 }
