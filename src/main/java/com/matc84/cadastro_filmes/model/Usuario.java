@@ -3,7 +3,6 @@ package com.matc84.cadastro_filmes.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,4 +23,9 @@ public class Usuario {
     @Column(nullable = false)
     private String senha;
 
+    public Usuario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
 }
