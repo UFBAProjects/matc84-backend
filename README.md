@@ -23,7 +23,7 @@ Este é o backend do sistema de cadastro de filmes, desenvolvido em **Spring Boo
 ## Como Executar
 
 1. Clone o repositório.
-2. Configure as variáveis de ambiente para integração com Firebase e banco de dados.
+2. Configure as variáveis de ambiente para integração com o banco de dados, através do arquivo 'resources/application.properties'.
 3. Execute o projeto com seu IDE ou usando o comando:  
    ```bash
    ./mvnw spring-boot:run
