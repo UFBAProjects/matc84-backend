@@ -3,12 +3,14 @@ package com.matc84.cadastro_filmes.controller;
 import com.matc84.cadastro_filmes.dto.FilmeDTO;
 import com.matc84.cadastro_filmes.service.FilmeService;
 import java.util.List;
+
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("filmes")
 public class FilmeController {
     private final FilmeService filmeService;
@@ -19,13 +21,13 @@ public class FilmeController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<FilmeDTO> cadastrarFilme(@RequestBody FilmeDTO filmeDTO) {
+    public ResponseEntity cadastrarFilme(@Valid @RequestBody FilmeDTO filmeDTO) {
         FilmeDTO filmeSalvo = filmeService.cadastrarFilme(filmeDTO);
         return ResponseEntity.status(201).body(filmeSalvo);
     }
 
     @PutMapping("/atualizar/{id}")
-    public ResponseEntity<FilmeDTO> atualizarFilme(@PathVariable Long id, @RequestBody FilmeDTO novoFilmeDTO) {
+    public ResponseEntity<FilmeDTO> atualizarFilme(@Valid @PathVariable Long id, @RequestBody FilmeDTO novoFilmeDTO) {
         FilmeDTO filmeAtualizado = filmeService.atualizarFilme(id, novoFilmeDTO);
         return ResponseEntity.ok(filmeAtualizado);
     }

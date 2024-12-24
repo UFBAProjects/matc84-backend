@@ -3,6 +3,7 @@ package com.matc84.cadastro_filmes.controller;
 import com.matc84.cadastro_filmes.dto.UsuarioDTO;
 import com.matc84.cadastro_filmes.dto.LoginDTO;
 import com.matc84.cadastro_filmes.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class AuthController {
     private UsuarioService usuarioService;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity login(@Valid @RequestBody LoginDTO loginDTO) {
         String token = authService.autenticar(loginDTO);
 
         if (token != null) {

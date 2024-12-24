@@ -3,6 +3,7 @@ package com.matc84.cadastro_filmes.controller;
 import com.matc84.cadastro_filmes.dto.UsuarioRequestDTO;
 import com.matc84.cadastro_filmes.dto.UsuarioDTO;
 import com.matc84.cadastro_filmes.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity cadastrarUsuario(@RequestBody UsuarioRequestDTO usuarioRequest) {
+    public ResponseEntity cadastrarUsuario(@Valid @RequestBody UsuarioRequestDTO usuarioRequest) {
         try {
             UsuarioDTO usuario = usuarioService.cadastrarUsuario(usuarioRequest);
             return ResponseEntity.status(201).body(usuario);
